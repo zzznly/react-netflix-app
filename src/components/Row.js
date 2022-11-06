@@ -3,17 +3,17 @@ import axios from '../api/axios';
 import './Row.css';
 import MovieModal from './MovieModal'
 
-export default function Row({ title, id, fetchURL, isLargeRow }) {
+export default function Row({ title, id, fetchUrl, isLargeRow }) {
     const [movies, setMovies] = useState([]);
     const [modalOpen, setModalOpen] = useState(false);
     const [movieSelected, setMovieSelected] = useState({});
 
     useEffect(() => {
         fetchMovieData();
-    }, [fetchURL]);
+    }, [fetchUrl]);
 
     const fetchMovieData = async () => {
-        const request = await axios.get(fetchURL);
+        const request = await axios.get(fetchUrl);
         // console.log(request.data.results);
         setMovies(request.data.results);
 
